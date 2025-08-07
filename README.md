@@ -53,8 +53,7 @@ Make sure you have the following installed on your machine:
 **Cloning the Repository**
 
 ```bash
-git clone https://github.com/adrianhajdin/gsap_cocktails.git
-cd gsap_cocktails
+git clone https://github.com/Alesia-Abaeva/coctail-landing.git
 ```
 
 **Installation**
