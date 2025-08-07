@@ -3,8 +3,6 @@ import gsap from 'gsap'
 
 import { navLinks } from '@/const'
 
-/** ready to use in globally*/
-
 const NavBar = () => {
   useGSAP(() => {
     const navTween = gsap.timeline({
