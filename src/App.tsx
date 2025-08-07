@@ -2,6 +2,7 @@ import gsap from 'gsap'
 import { ScrollTrigger, SplitText } from 'gsap/all'
 
 import NavBar from './layout'
+import CocktailSection from './widget/CocktailSection'
 import HeroSection from './widget/HeroSection'
 
 /** ready to use in globally*/
@@ -12,7 +13,7 @@ const App = () => {
     <main>
       <NavBar />
       <HeroSection />
-      <div className="h-dvh bg-black"></div>
+      <CocktailSection />
     </main>
   )
 }

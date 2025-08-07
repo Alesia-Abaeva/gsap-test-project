@@ -1,13 +1,21 @@
+import React from 'react'
+
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import { SplitText } from 'gsap/all'
+import { useMediaQuery } from 'react-responsive'
 
 const HeroSection = () => {
+  const videoRef = React.useRef<HTMLVideoElement | null>(null)
+
+  const isMobile = useMediaQuery({ maxWidth: 767 })
+
   useGSAP(() => {
     const heroSplit = new SplitText('.title', { type: 'chars, word' })
 
     const paragraphSplit = new SplitText('.subtitle', { type: 'lines' })
 
+    // Apply text-gradient class once before animating
     heroSplit.chars.forEach((char) => char.classList.add('text-gradient'))
 
     gsap.from(heroSplit.chars, {
@@ -37,6 +45,29 @@ const HeroSection = () => {
       })
       .to('.right-leaf', { y: 200 }, 0)
       .to('.left-leaf', { y: -200 }, 0)
+
+    /**
+     * 'top 50%' - first property - the element we are animated - so the top of the video reaches 50% down to screen the animations starts
+     * '120& top' - means that when the top of the video goes 120% past the top os the screen , meaning far off the screen, we end the animation
+     */
+    const startValue = isMobile ? 'top 50%' : 'center 60%'
+    const endValue = isMobile ? '120& top' : 'bottom top'
+
+    const timLineVideo = gsap.timeline({
+      scrollTrigger: {
+        trigger: 'video',
+        start: startValue,
+        end: endValue,
+        scrub: true,
+        pin: true, // stack of the screen
+      },
+    })
+
+    videoRef.current.onloadedmetadata = () => {
+      timLineVideo.to(videoRef.current, {
+        currentTime: videoRef.current?.duration,
+      })
+    }
   }, [])
 
   return (
@@ -64,6 +95,10 @@ const HeroSection = () => {
           </div>
         </div>
       </section>
+
+      <div className="video absolute inset-0">
+        <video src="/videos/output.mp4" muted playsInline preload="auto" ref={videoRef} />
+      </div>
     </>
   )
 }
