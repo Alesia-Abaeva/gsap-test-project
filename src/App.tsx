@@ -2,6 +2,7 @@ import gsap from 'gsap'
 import { ScrollTrigger, SplitText } from 'gsap/all'
 
 import NavBar from './layout'
+import AboutSection from './widget/AboutSection'
 import CocktailSection from './widget/CocktailSection'
 import HeroSection from './widget/HeroSection'
 
@@ -14,6 +15,7 @@ const App = () => {
       <NavBar />
       <HeroSection />
       <CocktailSection />
+      <AboutSection />
     </main>
   )
 }

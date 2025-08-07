@@ -1,9 +1,5 @@
-import React from 'react'
-
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
-import { SplitText } from 'gsap/all'
-import { useMediaQuery } from 'react-responsive'
 
 import { cocktailLists, mockTailLists } from '@/const'
 
