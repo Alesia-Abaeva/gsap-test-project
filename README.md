@@ -3,6 +3,7 @@
 
 A modern cocktail website built with React and TailwindCSS, featuring smooth GSAP animations such as SplitText reveals, scroll-triggered effects, parallax scrolling, and a custom carousel.
 
+- **[Figma Design](https://www.figma.com/design/MByXaI8pcleIbgTvsDat1X/Cocktail-GSAP-Website?node-id=2-2&p=f&t=0koBDh228F1tej2n-0)** 
 
 ## <a name="tech-stack"> Tech Stack</a>
 
